@@ -1,0 +1,42 @@
+# pretrained embeddings
+filename_embeddings     =data/ADE/wikipedia-pubmed-and-PMC-w2v.bin
+
+# dataset
+filename_dev            = "data/ADE/dev.txt"
+filename_test           = "data/ADE/test.txt"
+filename_train          = "data/ADE/ade_data.json"
+
+# training
+nepochs                 = 150
+optimizer               = Adam
+activation              = tanh
+learning_rate           = 1e-3
+gradientClipping        = False # if False, no clipping
+nepoch_no_imprv         = 30
+use_dropout             = True
+ner1_loss               = crf # or softmax
+ner2_loss               = crf # or softmax
+use_chars               = True 
+use_adversarial         = False
+ner_classes             = BIO #or EC for entity classification
+
+#hyperparameters
+dropout_embedding       = 0.75
+dropout_lstm            = 0.75
+dropout_lstm_output     = 0.75
+dropout_fcl_ner         = 0.8
+dropout_fcl_rel         = 0.8
+hidden_size_lstm        = 64
+hidden_size_n1          = 64
+#hidden_size_n2          = 32
+num_lstm_layers         = 3
+num_heads               = 8
+char_embeddings_size    = 25
+hidden_size_char        = 25
+label_embeddings_size   = 25 #if 0, no label embeddings
+attention_size          = 16 #if 0, no attention
+alpha                   = 0.01
+
+#evaluation
+evaluation_method       = strict # alternatives "boundaries" and "relaxed"
+root_node               = False 
